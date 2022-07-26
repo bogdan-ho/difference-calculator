@@ -1,5 +1,5 @@
 {
-  "name": "frontend-project-lvl2",
+  "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "[![Actions Status](https://github.com/bogdan-ho/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/bogdan-ho/frontend-project-lvl2/actions)",
   "main": "index.js",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/bogdan-ho/frontend-project-lvl2/issues"
   },
-  "homepage": "https://github.com/bogdan-ho/frontend-project-lvl2#readme"
+  "homepage": "https://github.com/bogdan-ho/frontend-project-lvl2#readme",
+  "devDependencies": {
+    "commander": "^9.4.0"
+  }
 }
