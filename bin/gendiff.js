@@ -10,6 +10,7 @@ program
   .option('-f, --format <type>', 'output format')
   // .argument('<type>', 'output format')
   .argument('<filepath1>', 'filepath first')
-  .argument('<filepath2>', 'filepath second');
+  .argument('<filepath2>', 'filepath second')
+  .action(() => {});
 
 program.parse();
