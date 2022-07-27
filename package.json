@@ -4,7 +4,9 @@
   "description": "[![Actions Status](https://github.com/bogdan-ho/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/bogdan-ho/frontend-project-lvl2/actions)",
   "main": "bin/gendiff.js",
   "type": "module",
-  "bin": { "gendiff": "bin/gendiff.js" },
+  "bin": {
+    "gendiff": "bin/gendiff.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,5 +22,8 @@
   "homepage": "https://github.com/bogdan-ho/frontend-project-lvl2#readme",
   "devDependencies": {
     "commander": "^9.4.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   }
 }
