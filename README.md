@@ -10,7 +10,7 @@ Difference Calculator is a program that determines the difference between two da
 ### How to install
 - Clone a repository
 - Go to the woorking directory of the project `cd frontend-project-lvl2/`
-- Use `npm ci`
+- Use `make install`
 - Install the package into the system using the `npm link`. It may require starting with `sudo`.
 
 ### How it works
