@@ -14,5 +14,6 @@ module.exports = {
   rules: {
     'no-console': 'off',
     'import/extensions': 'off',
+    'no-underscore-dangle': '[2, { "allow": ["__filename", "__dirname"] }]',
   },
 };
