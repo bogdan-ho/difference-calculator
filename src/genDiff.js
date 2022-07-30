@@ -1,16 +1,13 @@
 import _ from 'lodash';
 import path from 'node:path';
-import fs from 'node:fs';
+import getFileObject from './parsers.js';
 
 const genDiff = (filepath1, filepath2) => {
   const pathResolved1 = path.resolve(process.cwd(), filepath1);
   const pathResolved2 = path.resolve(process.cwd(), filepath2);
 
-  const file1 = fs.readFileSync(pathResolved1);
-  const file2 = fs.readFileSync(pathResolved2);
-
-  const fileObj1 = JSON.parse(file1);
-  const fileObj2 = JSON.parse(file2);
+  const fileObj1 = getFileObject(pathResolved1);
+  const fileObj2 = getFileObject(pathResolved2);
 
   const keys1 = Object.keys(fileObj1).sort();
   const keys2 = Object.keys(fileObj2).sort();
