@@ -50,7 +50,7 @@ const genDiff = (filepath1, filepath2) => {
 
   const result = ['{', ...diffedKeysStringify, '}'].join('\n');
 
-  console.log(result)
+  console.log(result);
 
   return result;
 };
