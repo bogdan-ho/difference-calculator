@@ -50,7 +50,9 @@ const genDiff = (filepath1, filepath2) => {
 
   const result = ['{', ...diffedKeysStringify, '}'].join('\n');
 
-  return console.log(result);
+  console.log(result)
+
+  return result;
 };
 
 export default genDiff;
