@@ -36,10 +36,10 @@ describe('nested objects', () => {
     expect(genDiff(filepath1, filepath2)).toBe(result);
   });
 
-  // test('genDiff YAML', () => {
-  //   const filepath1 = path.resolve(__dirname, '..', '__fixtures__/nested/file1.yml');
-  //   const filepath2 = path.resolve(__dirname, '..', '__fixtures__/nested/file2.yml');
+  test('genDiff YAML', () => {
+    const filepath1 = path.resolve(__dirname, '..', '__fixtures__/nested/file1.yml');
+    const filepath2 = path.resolve(__dirname, '..', '__fixtures__/nested/file2.yml');
 
-  //   expect(genDiff(filepath1, filepath2)).toBe(result);
-  // });
+    expect(genDiff(filepath1, filepath2)).toBe(result);
+  });
 });
