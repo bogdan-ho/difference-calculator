@@ -46,3 +46,7 @@ const makeStylish = (diffedKeys) => {
 };
 
 export default makeStylish;
+
+const ChooseFormatter = (formatter = makeStylish) => {
+  
+}
