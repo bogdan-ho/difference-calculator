@@ -37,7 +37,7 @@ const genDiff = (filepath1, filepath2, formater = stylish) => {
   };
 
   const result = iter(fileObj1, fileObj2);
-  const finalResult = stylish(result);
+  const finalResult = formater(result);
 
   console.log(finalResult);
 
