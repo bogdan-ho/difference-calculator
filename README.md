@@ -5,11 +5,11 @@
 [![eslint-test](https://github.com/bogdan-ho/frontend-project-lvl2/actions/workflows/eslint-test.yml/badge.svg?branch=main)](https://github.com/bogdan-ho/frontend-project-lvl2/actions/workflows/eslint-test.yml)
 
 ### About
-Difference Calculator is a program that determines the difference between two data structures(JSON & YAML)
+Difference Calculator is a program that determines the difference between two data structures (JSON & YAML)
 
 ### How to install
 - Clone a repository
-- Go to the woorking directory of the project `cd frontend-project-lvl2/`
+- Go to the woorking directory of the project `cd frontend-project-lvl2`
 - Use `make install`
 - Install the package into the system using the `npm link`. It may require starting with `sudo`.
 
