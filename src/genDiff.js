@@ -3,7 +3,7 @@ import path from 'node:path';
 import getFileObject from './parsers.js';
 import stylish from './stylish.js';
 
-const genDiff = (filepath1, filepath2) => {
+const genDiff = (filepath1, filepath2, formater = stylish) => {
   const pathResolved1 = path.resolve(process.cwd(), filepath1);
   const pathResolved2 = path.resolve(process.cwd(), filepath2);
 
