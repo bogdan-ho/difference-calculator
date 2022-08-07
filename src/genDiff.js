@@ -1,9 +1,9 @@
 import _ from 'lodash';
 import path from 'node:path';
 import getFileObject from './parsers.js';
-import stylish from './stylish.js';
+import makeFormatted from './stylish.js';
 
-const genDiff = (filepath1, filepath2, formater = stylish) => {
+const genDiff = (filepath1, filepath2) => {
   const pathResolved1 = path.resolve(process.cwd(), filepath1);
   const pathResolved2 = path.resolve(process.cwd(), filepath2);
 
@@ -37,7 +37,7 @@ const genDiff = (filepath1, filepath2, formater = stylish) => {
   };
 
   const result = iter(fileObj1, fileObj2);
-  const finalResult = formater(result);
+  const finalResult = makeFormatted(result, 'makeStylish');
 
   console.log(finalResult);
 
