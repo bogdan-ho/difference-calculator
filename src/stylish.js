@@ -45,8 +45,13 @@ const makeStylish = (diffedKeys) => {
   return iter(diffedKeys, 1);
 };
 
-export default makeStylish;
-
-const ChooseFormatter = (formatter = makeStylish) => {
-
+const makeFormatted = (diffedKeys, formatter = 'makeStylish') => {
+  switch (formatter) {
+    case 'makeStylish':
+      return makeStylish(diffedKeys);
+    default:
+      return console.error(`Передан неправильный форматер: ${formatter}`);
+  }
 };
+
+export default makeFormatted;
