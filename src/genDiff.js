@@ -1,9 +1,9 @@
 import _ from 'lodash';
 import path from 'node:path';
 import getFileObject from './parsers.js';
-import makeFormatted from './stylish.js';
+import makeFormatted from '../formatters/index.js';
 
-const genDiff = (filepath1, filepath2) => {
+const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
   const pathResolved1 = path.resolve(process.cwd(), filepath1);
   const pathResolved2 = path.resolve(process.cwd(), filepath2);
 
@@ -37,7 +37,8 @@ const genDiff = (filepath1, filepath2) => {
   };
 
   const result = iter(fileObj1, fileObj2);
-  const finalResult = makeFormatted(result, 'makeStylish');
+  console.log(`formatName is ${JSON.stringify(formatName)}`);
+  const finalResult = makeFormatted(result, formatName.format);
 
   console.log(finalResult);
 
