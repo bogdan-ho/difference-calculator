@@ -43,3 +43,23 @@ describe('nested objects', () => {
     expect(genDiff(filepath1, filepath2)).toBe(result);
   });
 });
+
+describe('plain format', () => {
+  describe('nested objects', () => {
+    const result = fs.readFileSync(path.resolve(__dirname, '..', '__fixtures__/plainFormatResult'), 'utf-8');
+
+    test('genDiff JSON', () => {
+      const filepath1 = path.resolve(__dirname, '..', '__fixtures__/nested/file1.json');
+      const filepath2 = path.resolve(__dirname, '..', '__fixtures__/nested/file2.json');
+
+      expect(genDiff(filepath1, filepath2, { format: 'plain' })).toBe(result);
+    });
+
+    test('genDiff YAML', () => {
+      const filepath1 = path.resolve(__dirname, '..', '__fixtures__/nested/file1.yml');
+      const filepath2 = path.resolve(__dirname, '..', '__fixtures__/nested/file2.yml');
+
+      expect(genDiff(filepath1, filepath2, { format: 'plain' })).toBe(result);
+    });
+  });
+});
