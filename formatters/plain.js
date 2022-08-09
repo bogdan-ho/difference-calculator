@@ -14,7 +14,7 @@ const makePlain = (diffedKeys) => {
   const iter = (currentDiffedKeys, ancestry, depth) => {
     const diffedKeysStringify = currentDiffedKeys.flatMap((obj) => {
       const name = obj.key;
-      const currentAncestry = (depth === 1) ? `${ancestry}${name}` : `${ancestry}.${name}`;
+      const currentAncestry = (depth === 1) ? `${name}` : `${ancestry}.${name}`;
 
       switch (obj.type) {
         case 'nested':
