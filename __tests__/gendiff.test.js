@@ -63,3 +63,23 @@ describe('plain format', () => {
     });
   });
 });
+
+describe('json format', () => {
+  describe('nested objects', () => {
+    const result = fs.readFileSync(path.resolve(__dirname, '..', '__fixtures__/jsonFormatResult'), 'utf-8');
+
+    test('genDiff JSON', () => {
+      const filepath1 = path.resolve(__dirname, '..', '__fixtures__/nested/file1.json');
+      const filepath2 = path.resolve(__dirname, '..', '__fixtures__/nested/file2.json');
+
+      expect(genDiff(filepath1, filepath2, { format: 'json' })).toBe(result);
+    });
+
+    test('genDiff YAML', () => {
+      const filepath1 = path.resolve(__dirname, '..', '__fixtures__/nested/file1.yml');
+      const filepath2 = path.resolve(__dirname, '..', '__fixtures__/nested/file2.yml');
+
+      expect(genDiff(filepath1, filepath2, { format: 'json' })).toBe(result);
+    });
+  });
+});
