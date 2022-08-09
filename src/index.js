@@ -11,11 +11,13 @@ const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
   const fileObj2 = getFileObject(pathResolved2);
 
   const iter = (object1, object2) => {
-    const keys1 = Object.keys(object1).sort();
-    const keys2 = Object.keys(object2).sort();
-    const keysAll = _.uniq([...keys1, ...keys2]).sort();
+    const keys1 = Object.keys(object1);
+    const keys2 = Object.keys(object2);
+    const keysAll = _.uniq([...keys1, ...keys2]);
+    const keysAllSorted = _.sortBy(keysAll);
+    
 
-    const diffedKeys = keysAll.map((key) => {
+    const diffedKeys = keysAllSorted.map((key) => {
       if (_.isObject(object1[key]) && _.isObject(object2[key])) {
         return { key, value: iter(object1[key], object2[key]), type: 'nested' };
       }
