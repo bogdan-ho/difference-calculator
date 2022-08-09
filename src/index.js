@@ -15,7 +15,6 @@ const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
     const keys2 = Object.keys(object2);
     const keysAll = _.uniq([...keys1, ...keys2]);
     const keysAllSorted = _.sortBy(keysAll);
-    
 
     const diffedKeys = keysAllSorted.map((key) => {
       if (_.isObject(object1[key]) && _.isObject(object2[key])) {
