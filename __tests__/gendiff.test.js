@@ -52,14 +52,14 @@ describe('plain format', () => {
       const filepath1 = path.resolve(__dirname, '..', '__fixtures__/nested/file1.json');
       const filepath2 = path.resolve(__dirname, '..', '__fixtures__/nested/file2.json');
 
-      expect(genDiff(filepath1, filepath2, { format: 'plain' })).toBe(result);
+      expect(genDiff(filepath1, filepath2, 'plain')).toBe(result);
     });
 
     test('genDiff YAML', () => {
       const filepath1 = path.resolve(__dirname, '..', '__fixtures__/nested/file1.yml');
       const filepath2 = path.resolve(__dirname, '..', '__fixtures__/nested/file2.yml');
 
-      expect(genDiff(filepath1, filepath2, { format: 'plain' })).toBe(result);
+      expect(genDiff(filepath1, filepath2, 'plain')).toBe(result);
     });
   });
 });
@@ -72,14 +72,14 @@ describe('json format', () => {
       const filepath1 = path.resolve(__dirname, '..', '__fixtures__/nested/file1.json');
       const filepath2 = path.resolve(__dirname, '..', '__fixtures__/nested/file2.json');
 
-      expect(genDiff(filepath1, filepath2, { format: 'json' })).toBe(result);
+      expect(genDiff(filepath1, filepath2, 'json')).toBe(result);
     });
 
     test('genDiff YAML', () => {
       const filepath1 = path.resolve(__dirname, '..', '__fixtures__/nested/file1.yml');
       const filepath2 = path.resolve(__dirname, '..', '__fixtures__/nested/file2.yml');
 
-      expect(genDiff(filepath1, filepath2, { format: 'json' })).toBe(result);
+      expect(genDiff(filepath1, filepath2, 'json')).toBe(result);
     });
   });
 });
