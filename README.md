@@ -14,4 +14,4 @@ Difference Calculator is a program that determines the difference between two da
 - Install the package into the system using the `npm link`. It may require starting with `sudo`.
 
 ### How it works
-[![asciicast](https://asciinema.org/a/l641pEYaKaXxylR93qOHGTJNC.svg)](https://asciinema.org/a/l641pEYaKaXxylR93qOHGTJNC)
+[![asciicast](https://asciinema.org/a/3DU51SnsBFQvqsH2xjXvYZ4du.svg)](https://asciinema.org/a/3DU51SnsBFQvqsH2xjXvYZ4du)
