@@ -1,16 +1,25 @@
-/* eslint-disable consistent-return */
 import fs from 'node:fs';
 import yaml from 'js-yaml';
 import path from 'node:path';
 
-const getFileObject = (filepathResolved) => {
+const getFileExtension = (filepathResolved) => {
   const { ext } = path.parse(filepathResolved);
+  return ext.slice(1);
+};
 
-  if (ext === '.json') {
-    return JSON.parse(fs.readFileSync(filepathResolved));
-  }
-  if (ext === '.yml' || ext === '.yaml') {
-    return yaml.load(fs.readFileSync(filepathResolved));
+const getJsonFile = (filepath) => JSON.parse(fs.readFileSync(filepath));
+const getYamlFile = (filepath) => yaml.load(fs.readFileSync(filepath));
+
+const getFileObject = (filepathResolved) => {
+  const ext = getFileExtension(filepathResolved);
+
+  switch (ext) {
+    case ('json'):
+      return getJsonFile(filepathResolved);
+    case ('yml' || 'yaml'):
+      return getYamlFile(filepathResolved);
+    default:
+      throw new Error(`Передан неправильное расширение файла ext: ${ext}`);
   }
 };
 
