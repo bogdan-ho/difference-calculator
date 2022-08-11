@@ -1,7 +1,7 @@
-import _ from 'lodash';
 import path from 'node:path';
 import getFileObject from './parsers.js';
 import makeFormatted from './formatters/index.js';
+import buildTree from './buildTree.js';
 
 const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
   const pathResolved1 = path.resolve(process.cwd(), filepath1);
@@ -10,37 +10,8 @@ const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
   const fileObj1 = getFileObject(pathResolved1);
   const fileObj2 = getFileObject(pathResolved2);
 
-  const iter = (object1, object2) => {
-    const keys1 = Object.keys(object1);
-    const keys2 = Object.keys(object2);
-    const keysAll = _.uniq([...keys1, ...keys2]);
-    const keysAllSorted = _.sortBy(keysAll);
-
-    const diffedKeys = keysAllSorted.map((key) => {
-      if (_.isObject(object1[key]) && _.isObject(object2[key])) {
-        return { key, value: iter(object1[key], object2[key]), type: 'nested' };
-      }
-      if (object1[key] === object2[key]) {
-        return { key, value: object1[key], type: 'unchanged' };
-      }
-      if (object2[key] === undefined) {
-        return { key, value: object1[key], type: 'deleted' };
-      }
-      if (object1[key] === undefined) {
-        return { key, value: object2[key], type: 'added' };
-      }
-      return {
-        key, value1: object1[key], value2: object2[key], type: 'changed',
-      };
-    });
-
-    return diffedKeys;
-  };
-
-  const result = iter(fileObj1, fileObj2);
-  const finalResult = makeFormatted(result, formatName);
-
-  console.log(finalResult);
+  const tree = buildTree(fileObj1, fileObj2);
+  const finalResult = makeFormatted(tree, formatName);
 
   return finalResult;
 };
