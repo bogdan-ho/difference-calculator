@@ -14,4 +14,17 @@ Difference Calculator is a program that determines the difference between two da
 - Install the package into the system using the `npm link`. It may require starting with `sudo`.
 
 ### How it works
-[![asciicast](https://asciinema.org/a/BinoHbIKWuWK7NxO400ibeg9K.svg)](https://asciinema.org/a/BinoHbIKWuWK7NxO400ibeg9K)
+##### Plain JSON files comparison
+[![asciicast](https://asciinema.org/a/FPSeWpgEE4t9aVcUktwDDqupH.svg)](https://asciinema.org/a/FPSeWpgEE4t9aVcUktwDDqupH)
+
+##### Plain YAML files comparison
+[![asciicast](https://asciinema.org/a/QJ7UfUfV8cuGZPHJ6n69DZoDr.svg)](https://asciinema.org/a/QJ7UfUfV8cuGZPHJ6n69DZoDr)
+
+##### Nested JSON & YAML files comparison
+[![asciicast](https://asciinema.org/a/Le8sDO3SKAg1oLMjb1rRe5z69.svg)](https://asciinema.org/a/Le8sDO3SKAg1oLMjb1rRe5z69)
+
+##### Files comparison with '--format plain' output
+[![asciicast](https://asciinema.org/a/VSquTkgVk6Mccql1OyTkZbasv.svg)](https://asciinema.org/a/VSquTkgVk6Mccql1OyTkZbasv)
+
+##### Files comparison with '--format json' output
+[![asciicast](https://asciinema.org/a/QDJYrrL2AnCM7mwQePq9HxUsm.svg)](https://asciinema.org/a/QDJYrrL2AnCM7mwQePq9HxUsm)
