@@ -13,7 +13,7 @@ program
   .argument('<filepath1>', 'filepath first')
   .argument('<filepath2>', 'filepath second')
   .action((filepath1, filepath2) => {
-    genDiff(filepath1, filepath2, program.opts().format);
+    console.log(genDiff(filepath1, filepath2, program.opts().format));
   });
 
 program.parse();
