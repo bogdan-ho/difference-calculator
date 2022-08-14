@@ -7,12 +7,12 @@
 # Вычислитель отличий
 Программа, определяющая разницу между двумя структурами данных. 
 
-# Difference Calculator
-Program that determines the difference between two data structures.
-
 ## Возможности утилиты
 - Поддержка разных входных форматов: yaml, json
 - Генерация отчета в виде plain text, stylish и json
+
+# Difference Calculator
+Program that determines the difference between two data structures.
 
 ## Utility Features
 - Support for different input formats: yaml, json
