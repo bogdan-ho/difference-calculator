@@ -1,7 +1,7 @@
 import makeStylish from './stylish.js';
 import makePlain from './plain.js';
 
-const makeFormatted = (diffedKeys, formatter = 'stylish') => {
+const makeFormatted = (diffedKeys, formatter) => {
   switch (formatter) {
     case 'stylish':
       return makeStylish(diffedKeys);
