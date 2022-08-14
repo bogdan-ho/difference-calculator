@@ -3,9 +3,11 @@ import getFileObject from './parsers.js';
 import makeFormatted from './formatters/index.js';
 import buildTree from './buildTree.js';
 
+const getPathResolved = (filepath) => path.resolve(process.cwd(), filepath);
+
 const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
-  const pathResolved1 = path.resolve(process.cwd(), filepath1);
-  const pathResolved2 = path.resolve(process.cwd(), filepath2);
+  const pathResolved1 = getPathResolved(filepath1);
+  const pathResolved2 = getPathResolved(filepath2);
 
   const fileObj1 = getFileObject(pathResolved1);
   const fileObj2 = getFileObject(pathResolved2);
