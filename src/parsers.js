@@ -1,8 +1,9 @@
-import path from 'node:path';
+import yaml from 'js-yaml';
 
-const getFileExtension = (filepathResolved) => {
-  const { ext } = path.parse(filepathResolved);
-  return ext.slice(1);
+const parsers = {
+  json: JSON.parse,
+  yaml: yaml.load,
+  yml: yaml.load,
 };
 
-export default getFileExtension;
+export default (data, format) => parsers[format](data);
