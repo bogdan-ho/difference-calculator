@@ -16,7 +16,7 @@ const getFileObject = (filepathResolved) => {
   switch (ext) {
     case ('json'):
       return getJsonFile(filepathResolved);
-    case ('yml'): case ('yaml'): // case ('yml' || 'yaml'):
+    case ('yml'): case ('yaml'):
       return getYamlFile(filepathResolved);
     default:
       throw new Error(`Передан неправильное расширение файла ext: ${ext}`);
