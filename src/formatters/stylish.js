@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 const calcIndent = (depth, spacesCount = 4) => ' '.repeat(spacesCount * depth - 2);
-const calcBracketIndent = (depth, spacesCount = 4) => ' '.repeat(spacesCount * depth - 4);
+const calcBracketIndent = (depth, spacesCount = 4) => ' '.repeat(spacesCount * depth);
 
 const stringify = (value, treeDepth) => {
   if (!_.isObject(value)) return `${value}`;
@@ -39,7 +39,7 @@ const makeStylish = (diffedKeys) => {
         }
       });
 
-    return ['{', ...diffedKeysStringify, `${calcBracketIndent(depth)}}`].join('\n');
+    return ['{', ...diffedKeysStringify, `${calcBracketIndent(depth - 1)}}`].join('\n');
   };
 
   return iter(diffedKeys, 1);
