@@ -32,7 +32,7 @@ const makePlain = (diffedKeys) => {
       }
     });
 
-    return [...diffedKeysStringify].join('\n');
+    return diffedKeysStringify.join('\n');
   };
 
   return iter(diffedKeys, '', 1);
