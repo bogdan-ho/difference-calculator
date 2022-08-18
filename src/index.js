@@ -11,7 +11,7 @@ const getFileExtension = (filepathResolved) => {
   return ext.slice(1);
 };
 
-const getFileObject = (filepathResolved) => {
+const getData = (filepathResolved) => {
   const format = getFileExtension(filepathResolved);
 
   return parsers(fs.readFileSync(filepathResolved), format);
@@ -21,10 +21,10 @@ const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
   const pathResolved1 = getPathResolved(filepath1);
   const pathResolved2 = getPathResolved(filepath2);
 
-  const fileObj1 = getFileObject(pathResolved1);
-  const fileObj2 = getFileObject(pathResolved2);
+  const data1 = getData(pathResolved1);
+  const data2 = getData(pathResolved2);
 
-  const tree = buildTree(fileObj1, fileObj2);
+  const tree = buildTree(data1, data2);
   const finalResult = makeFormatted(tree, formatName);
 
   return finalResult;
