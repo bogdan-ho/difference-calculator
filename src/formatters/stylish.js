@@ -39,7 +39,9 @@ const makeStylish = (diffedKeys) => {
         }
       });
 
-    return ['{', ...diffedKeysStringify, `${calcBracketIndent(depth - 1)}}`].join('\n');
+    return `{
+${diffedKeysStringify.join('\n')}
+${calcBracketIndent(depth - 1)}}`;
   };
 
   return iter(diffedKeys, 1);
