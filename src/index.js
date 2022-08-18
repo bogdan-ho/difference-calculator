@@ -1,6 +1,6 @@
 import path from 'node:path';
 import fs from 'node:fs';
-import makeFormatted from './formatters/index.js';
+import format from './formatters/index.js';
 import buildTree from './buildTree.js';
 import parsers from './parsers.js';
 
@@ -12,9 +12,9 @@ const getFileExtension = (filepathResolved) => {
 };
 
 const getData = (filepathResolved) => {
-  const format = getFileExtension(filepathResolved);
+  const dataFormat = getFileExtension(filepathResolved);
 
-  return parsers(fs.readFileSync(filepathResolved), format);
+  return parsers(fs.readFileSync(filepathResolved), dataFormat);
 };
 
 const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
@@ -26,7 +26,7 @@ const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
 
   const tree = buildTree(data1, data2);
 
-  return makeFormatted(tree, formatName);
+  return format(tree, formatName);
 };
 
 export default genDiff;
