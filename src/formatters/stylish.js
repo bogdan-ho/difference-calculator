@@ -35,7 +35,7 @@ const makeStylish = (diffedKeys) => {
           case 'changed':
             return [getValue(obj.value1, '-'), getValue(obj.value2, '+')];
           default:
-            return console.error(`Передан неправильный оператор: ${obj.type}`);
+            throw new Error(`Передан неправильный оператор: ${obj.type}`);
         }
       });
 
