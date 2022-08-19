@@ -12,7 +12,7 @@ const getValue = (value) => {
 
 const makePlain = (diffedKeys) => {
   const iter = (currentDiffedKeys, ancestry, depth) => {
-    const diffedKeysStringify = currentDiffedKeys.flatMap((obj) => {
+    const stringifiedDiffedKeys = currentDiffedKeys.flatMap((obj) => {
       const name = obj.key;
       const currentAncestry = (depth === 1) ? `${name}` : `${ancestry}.${name}`;
 
@@ -32,7 +32,7 @@ const makePlain = (diffedKeys) => {
       }
     });
 
-    return diffedKeysStringify.join('\n');
+    return stringifiedDiffedKeys.join('\n');
   };
 
   return iter(diffedKeys, '', 1);
