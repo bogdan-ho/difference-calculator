@@ -19,7 +19,7 @@ ${calcIndent(treeDepth)}  }`;
 
 const makeStylish = (diffedKeys) => {
   const iter = (currentDiffedKeys, depth) => {
-    const diffedKeysStringify = currentDiffedKeys
+    const stringifiedDiffedKeys = currentDiffedKeys
       .flatMap((obj) => {
         const getValue = (value, sign) => `${calcIndent(depth)}${sign} ${obj.key}: ${stringify(value, depth)}`;
 
@@ -40,7 +40,7 @@ const makeStylish = (diffedKeys) => {
       });
 
     return `{
-${diffedKeysStringify.join('\n')}
+${stringifiedDiffedKeys.join('\n')}
 ${calcBracketIndent(depth - 1)}}`;
   };
 
