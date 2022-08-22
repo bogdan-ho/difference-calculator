@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
-const calcIndent = (depth, spacesCount = 4) => ' '.repeat(spacesCount * depth - 2);
-const calcBracketIndent = (depth, spacesCount = 4) => ' '.repeat(spacesCount * depth);
+const getIndent = (depth, spacesCount = 4) => ' '.repeat(spacesCount * depth - 2);
+const getBracketIndent = (depth, spacesCount = 4) => ' '.repeat(spacesCount * depth);
 
 const stringify = (value, treeDepth) => {
   if (!_.isObject(value)) return `${value}`;
@@ -9,23 +9,23 @@ const stringify = (value, treeDepth) => {
 
   const keys = Object.keys(value);
   const lines = keys
-    .map((key) => `${calcIndent(treeDepth + 1)}  ${key}: ${stringify(value[key], treeDepth + 1)}`)
+    .map((key) => `${getIndent(treeDepth + 1)}  ${key}: ${stringify(value[key], treeDepth + 1)}`)
     .join('\n');
 
   return `{
 ${lines}
-${calcIndent(treeDepth)}  }`;
+${getIndent(treeDepth)}  }`;
 };
 
 const makeStylish = (diffedKeys) => {
   const iter = (currentDiffedKeys, depth) => {
     const stringifiedDiffedKeys = currentDiffedKeys
       .flatMap((obj) => {
-        const getValue = (value, sign) => `${calcIndent(depth)}${sign} ${obj.key}: ${stringify(value, depth)}`;
+        const getValue = (value, sign) => `${getIndent(depth)}${sign} ${obj.key}: ${stringify(value, depth)}`;
 
         switch (obj.type) {
           case 'nested':
-            return `${calcIndent(depth)}  ${obj.key}: ${iter(obj.children, depth + 1)}`;
+            return `${getIndent(depth)}  ${obj.key}: ${iter(obj.children, depth + 1)}`;
           case 'unchanged':
             return getValue(obj.value, ' ');
           case 'deleted':
@@ -41,7 +41,7 @@ const makeStylish = (diffedKeys) => {
 
     return `{
 ${stringifiedDiffedKeys.join('\n')}
-${calcBracketIndent(depth - 1)}}`;
+${getBracketIndent(depth - 1)}}`;
   };
 
   return iter(diffedKeys, 1);
