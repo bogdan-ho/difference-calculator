@@ -8,78 +8,26 @@ import genDiff from '../src/index.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-describe('plain objects', () => {
-  const result = fs.readFileSync(path.resolve(__dirname, '..', '__fixtures__/plain/result'), 'utf-8');
-
-  test('genDiff JSON', () => {
-    const filepath1 = path.resolve(__dirname, '..', '__fixtures__/plain/file1.json');
-    const filepath2 = path.resolve(__dirname, '..', '__fixtures__/plain/file2.json');
-
-    expect(genDiff(filepath1, filepath2)).toBe(result);
-  });
-
-  test('genDiff YAML', () => {
-    const filepath1 = path.resolve(__dirname, '..', '__fixtures__/plain/file1.yml');
-    const filepath2 = path.resolve(__dirname, '..', '__fixtures__/plain/file2.yml');
-
-    expect(genDiff(filepath1, filepath2)).toBe(result);
-  });
-});
-
-describe('nested objects', () => {
-  const result = fs.readFileSync(path.resolve(__dirname, '..', '__fixtures__/nested/result'), 'utf-8');
-
-  test('genDiff JSON', () => {
-    const filepath1 = path.resolve(__dirname, '..', '__fixtures__/nested/file1.json');
-    const filepath2 = path.resolve(__dirname, '..', '__fixtures__/nested/file2.json');
-
-    expect(genDiff(filepath1, filepath2)).toBe(result);
-  });
-
-  test('genDiff YAML', () => {
-    const filepath1 = path.resolve(__dirname, '..', '__fixtures__/nested/file1.yml');
-    const filepath2 = path.resolve(__dirname, '..', '__fixtures__/nested/file2.yml');
-
-    expect(genDiff(filepath1, filepath2)).toBe(result);
-  });
-});
-
-describe('plain format', () => {
-  describe('nested objects', () => {
-    const result = fs.readFileSync(path.resolve(__dirname, '..', '__fixtures__/plainFormatResult'), 'utf-8');
+describe.each([
+  ['nested/result', 'stylish'],
+  ['plainFormatResult', 'plain'],
+  ['jsonFormatResult', 'json'],
+])('gendiff', (resultName, format) => {
+  describe(`${format} format`, () => {
+    const result = fs.readFileSync(path.resolve(__dirname, '..', `__fixtures__/${resultName}`), 'utf-8');
 
     test('genDiff JSON', () => {
       const filepath1 = path.resolve(__dirname, '..', '__fixtures__/nested/file1.json');
       const filepath2 = path.resolve(__dirname, '..', '__fixtures__/nested/file2.json');
 
-      expect(genDiff(filepath1, filepath2, 'plain')).toBe(result);
+      expect(genDiff(filepath1, filepath2, format)).toBe(result);
     });
 
     test('genDiff YAML', () => {
       const filepath1 = path.resolve(__dirname, '..', '__fixtures__/nested/file1.yml');
       const filepath2 = path.resolve(__dirname, '..', '__fixtures__/nested/file2.yml');
 
-      expect(genDiff(filepath1, filepath2, 'plain')).toBe(result);
-    });
-  });
-});
-
-describe('json format', () => {
-  describe('nested objects', () => {
-    const result = fs.readFileSync(path.resolve(__dirname, '..', '__fixtures__/jsonFormatResult'), 'utf-8');
-
-    test('genDiff JSON', () => {
-      const filepath1 = path.resolve(__dirname, '..', '__fixtures__/nested/file1.json');
-      const filepath2 = path.resolve(__dirname, '..', '__fixtures__/nested/file2.json');
-
-      expect(genDiff(filepath1, filepath2, 'json')).toBe(result);
-    });
-
-    test('genDiff YAML', () => {
-      const filepath1 = path.resolve(__dirname, '..', '__fixtures__/nested/file1.yml');
-      const filepath2 = path.resolve(__dirname, '..', '__fixtures__/nested/file2.yml');
-
-      expect(genDiff(filepath1, filepath2, 'json')).toBe(result);
+      expect(genDiff(filepath1, filepath2, format)).toBe(result);
     });
   });
 });
