@@ -12,9 +12,7 @@ const stringify = (value, treeDepth) => {
     .map((key) => `${getIndent(treeDepth + 1)}  ${key}: ${stringify(value[key], treeDepth + 1)}`)
     .join('\n');
 
-  return `{
-${lines}
-${getIndent(treeDepth)}  }`;
+  return ['{', lines, `${getBracketIndent(treeDepth)}}`].join('\n');
 };
 
 const makeStylish = (diffedKeys) => {
