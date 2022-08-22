@@ -11,10 +11,10 @@ const getValue = (value) => {
 };
 
 const makePlain = (diffedKeys) => {
-  const iter = (currentDiffedKeys, ancestry, depth) => {
+  const iter = (currentDiffedKeys, ancestry) => {
     const stringifiedDiffedKeys = currentDiffedKeys.flatMap((obj) => {
       const name = obj.key;
-      const currentAncestry = (depth === 1) ? `${name}` : `${ancestry}.${name}`;
+      const currentAncestry = (ancestry.length === 0) ? `${name}` : `${ancestry}.${name}`;
 
       switch (obj.type) {
         case 'nested':
@@ -35,7 +35,7 @@ const makePlain = (diffedKeys) => {
     return stringifiedDiffedKeys.join('\n');
   };
 
-  return iter(diffedKeys, '', 1);
+  return iter(diffedKeys, '');
 };
 
 export default makePlain;
