@@ -2,7 +2,6 @@
 [![Actions Status](https://github.com/bogdan-ho/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/bogdan-ho/frontend-project-lvl2/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/6a6a42a31b2d693da17c/maintainability)](https://codeclimate.com/github/bogdan-ho/frontend-project-lvl2/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/6a6a42a31b2d693da17c/test_coverage)](https://codeclimate.com/github/bogdan-ho/frontend-project-lvl2/test_coverage)
-[![eslint-test](https://github.com/bogdan-ho/frontend-project-lvl2/actions/workflows/eslint-test.yml/badge.svg?branch=main)](https://github.com/bogdan-ho/frontend-project-lvl2/actions/workflows/eslint-test.yml)
 
 # Вычислитель отличий
 Программа, определяющая разницу между двумя структурами данных. 
