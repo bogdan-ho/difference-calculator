@@ -13,10 +13,10 @@ const buildTree = (data1, data2) => {
     if (data1[key] === data2[key]) {
       return { key, value: data1[key], type: 'unchanged' };
     }
-    if (data2[key] === undefined) {
+    if (!_.has(data2, key)) {
       return { key, value: data1[key], type: 'deleted' };
     }
-    if (data1[key] === undefined) {
+    if (!_.has(data1, key)) {
       return { key, value: data2[key], type: 'added' };
     }
     return {
