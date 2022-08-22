@@ -18,7 +18,7 @@ const makePlain = (diffedKeys) => {
 
       switch (obj.type) {
         case 'nested':
-          return iter(obj.value, currentAncestry);
+          return iter(obj.children, currentAncestry);
         case 'unchanged':
           return [];
         case 'deleted':

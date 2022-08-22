@@ -25,7 +25,7 @@ const makeStylish = (diffedKeys) => {
 
         switch (obj.type) {
           case 'nested':
-            return `${calcIndent(depth)}  ${obj.key}: ${iter(obj.value, depth + 1)}`;
+            return `${calcIndent(depth)}  ${obj.key}: ${iter(obj.children, depth + 1)}`;
           case 'unchanged':
             return getValue(obj.value, ' ');
           case 'deleted':

@@ -8,7 +8,7 @@ const buildTree = (data1, data2) => {
 
   const diffedKeys = keysAllSorted.map((key) => {
     if (_.isObject(data1[key]) && _.isObject(data2[key])) {
-      return { key, value: buildTree(data1[key], data2[key]), type: 'nested' };
+      return { key, children: buildTree(data1[key], data2[key]), type: 'nested' };
     }
     if (data1[key] === data2[key]) {
       return { key, value: data1[key], type: 'unchanged' };
