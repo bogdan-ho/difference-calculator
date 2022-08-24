@@ -35,11 +35,10 @@ const makeStylish = (diffedKeys) => {
           default:
             throw new Error(`Передан неправильный оператор: ${obj.type}`);
         }
-      });
+      })
+      .join('\n');
 
-    return `{
-${stringifiedDiffedKeys.join('\n')}
-${getBracketIndent(depth - 1)}}`;
+    return ['{', stringifiedDiffedKeys, `${getBracketIndent(depth - 1)}}`].join('\n');
   };
 
   return iter(diffedKeys, 1);
