@@ -1,10 +1,15 @@
 import _ from 'lodash';
 
-const buildTree = (data1, data2) => {
+const getAllKeys = (data1, data2) => {
   const keys1 = Object.keys(data1);
   const keys2 = Object.keys(data2);
   const keysAll = _.uniq([...keys1, ...keys2]);
-  const keysAllSorted = _.sortBy(keysAll);
+
+  return _.sortBy(keysAll);
+};
+
+const buildTree = (data1, data2) => {
+  const keysAllSorted = getAllKeys(data1, data2);
 
   const diffedKeys = keysAllSorted.map((key) => {
     if (_.isObject(data1[key]) && _.isObject(data2[key])) {
