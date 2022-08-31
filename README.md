@@ -3,14 +3,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/6a6a42a31b2d693da17c/maintainability)](https://codeclimate.com/github/bogdan-ho/frontend-project-lvl2/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/6a6a42a31b2d693da17c/test_coverage)](https://codeclimate.com/github/bogdan-ho/frontend-project-lvl2/test_coverage)
 
-# Вычислитель отличий
-Программа, определяющая разницу между двумя структурами данных. 
-
-## Возможности утилиты
-- Поддержка разных входных форматов: yaml, json
-- Генерация отчета в виде plain text, stylish и json
-
-# Difference Calculator
+# Difference Calculator (Gendiff)
 Program that determines the difference between two data structures.
 
 ## Utility Features
@@ -24,6 +17,16 @@ Program that determines the difference between two data structures.
 - Install the package into the system using the `npm link`. It may require starting with `sudo`.
 
 ## How it works
+The application detects file format based on its extension. It converts config to an object structure (AST), same for different formats.
+Then the app creates a diff by comparing the ASTs recursively with a [function](https://github.com/bogdan-ho/frontend-project-lvl2/blob/db0e0bc5c0ca9b4be44e23b6b834babc507a3f7b/src/index.js#L20). Finally, the app renders diff in the selected `format` to the console.
+
+### Options
+``
+-v, --version        output the version number
+-f, --format [type]  output format
+-h, --help           output usage information
+``
+
 #### Plain JSON files comparison
 [![asciicast](https://asciinema.org/a/FPSeWpgEE4t9aVcUktwDDqupH.svg)](https://asciinema.org/a/FPSeWpgEE4t9aVcUktwDDqupH)
 
