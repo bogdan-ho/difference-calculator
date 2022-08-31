@@ -21,11 +21,13 @@ The application detects file format based on its extension. It converts config t
 Then the app creates a diff by comparing the ASTs recursively with a [function](https://github.com/bogdan-ho/frontend-project-lvl2/blob/db0e0bc5c0ca9b4be44e23b6b834babc507a3f7b/src/index.js#L20). Finally, the app renders diff in the selected `format` to the console.
 
 ### Options
-``
--v, --version        output the version number
--f, --format [type]  output format
--h, --help           output usage information
-``
+```
+-V, --version        output the version number
+-f, --format <type>  output format (stylish, plain, json) (default: "stylish")
+-h, --help           display help for command
+```
+
+### Examples
 
 #### Plain JSON files comparison
 [![asciicast](https://asciinema.org/a/FPSeWpgEE4t9aVcUktwDDqupH.svg)](https://asciinema.org/a/FPSeWpgEE4t9aVcUktwDDqupH)
